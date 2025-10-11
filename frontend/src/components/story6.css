@@ -1,0 +1,78 @@
+/* src/components/story1.css */ 
+
+.story-container {
+  background-color: #111D13; /* dark background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* center horizontally */
+  padding: 20px;
+  box-sizing: border-box;
+  min-height: 100vh;         /* full viewport height */
+}
+
+.title {
+  font-family: 'Arial', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+.avatar {
+  display: flex;
+  flex-direction: row;       /* image and text side by side */
+  align-items: flex-start;   /* align at the top */
+  max-width: 800px;          /* optional: max width of the container */
+  gap: 20px;                 /* space between image and text */
+  width: 100%;
+}
+
+.avatar img {
+  width: 250px;              /* image size */
+  height: auto;
+  flex-shrink: 0;            /* prevent image from shrinking */
+  position: relative;
+  top: -80px; 
+}
+
+.text-and-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  /* aligns text and buttons with text start */
+  flex: 1;
+}
+
+.text {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.5rem;
+  color: white;
+  line-height: 1.5;
+  text-align: left;
+  word-wrap: break-word;
+  margin-bottom: 10px;      /* small space before buttons */
+}
+
+/* Buttons styling */
+.story-container button {
+  display: block;                  /* each button on its own line */
+  width: 100%;                     /* full width of container */
+  max-width: 600px;                /* optional: limit width */
+  margin: 5px 0;                   /* vertical spacing between buttons */
+  padding: 12px 20px;              /* inner spacing */
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #111D13;                  /* button text color */
+  background-color: #ffffff;       /* button background */
+  border: none;
+  border-radius: 8px;              /* rounded corners */
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.story-container button:hover {
+  background-color: #dddddd;       /* hover effect */
+  transform: scale(1.03);
+}
+

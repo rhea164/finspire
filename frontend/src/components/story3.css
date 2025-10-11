@@ -1,0 +1,112 @@
+/* src/components/story1.css */ 
+
+.story-container {
+  background-color: #111D13; /* dark background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* center horizontally */
+  padding: 20px;
+  box-sizing: border-box;
+  min-height: 100vh;         /* full viewport height */
+}
+
+.hint-button {
+  background-color: #8b735f;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  width: 150px;
+  display: block;
+  margin: 20px auto; /* center the button */
+  transition: all 0.3s ease;
+  position:absolute;
+}
+
+.hint-container {
+  position: relative;
+  text-align: center; /* center the button and hint box */
+}
+
+.hint-box {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+  display: inline-block;
+  max-width: 300px;
+  font-size: 16px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+
+.title {
+  font-family: 'Arial', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+.avatar {
+  display: flex;
+  flex-direction: row;       /* image and text side by side */
+  align-items: flex-start;   /* align at the top */
+  max-width: 800px;          /* optional: max width of the container */
+  gap: 20px;                 /* space between image and text */
+  width: 100%;
+}
+
+.avatar img {
+  width: 250px;              /* image size */
+  height: auto;
+  border-radius: 50%;        /* circular image */
+  flex-shrink: 0;            /* prevent image from shrinking */
+  position: relative;
+  top: -80px; 
+}
+
+.text-and-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  /* aligns text and buttons with text start */
+  flex: 1;
+}
+
+.text {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.5rem;
+  color: white;
+  line-height: 1.5;
+  text-align: left;
+  word-wrap: break-word;
+  margin-bottom: 10px;      /* small space before buttons */
+}
+
+/* Buttons styling */
+.story-container button {
+  display: block;                  /* each button on its own line */
+  width: 100%;                     /* full width of container */
+  max-width: 600px;                /* optional: limit width */
+  margin: 5px 0;                   /* vertical spacing between buttons */
+  padding: 12px 20px;              /* inner spacing */
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #111D13;                  /* button text color */
+  background-color: #ffffff;       /* button background */
+  border: none;
+  border-radius: 8px;              /* rounded corners */
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.story-container button:hover {
+  background-color: #dddddd;       /* hover effect */
+  transform: scale(1.03);
+}
+
