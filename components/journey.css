@@ -1,0 +1,62 @@
+.journey-container {
+    /* background-color: #1b1f18;  */
+    
+    /* max-width: 600px; */
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.journey-title {
+    color: #d1e7c2; /* light green text */
+    font-size: 50px;
+    margin-bottom: 6px;
+    font-family: "Poppins";
+}
+
+.journey-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+/* .journey-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+  margin-bottom: 25px;
+} */
+
+.journey-text {
+  font-size: 28px;
+  line-height: 1.5;
+  flex: 1;
+  text-align: left;
+  color: #FFFFFF;
+  margin-top: -40px;
+}
+
+.continue-button {
+  background-color: #8b735f; /* similar brown */
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.continue-button:hover {
+  background-color: #a5846e;
+}
+
+.avatar {
+  width: 200px;
+  height: auto;
+}
+
+
