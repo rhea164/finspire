@@ -23,9 +23,9 @@ function Landing() {
 
   // State for currently displayed topics
   const [topics, setTopics] = useState([
-    'Stocks',
-    'Commodities',
-    'Cryptocurrency'
+    'Bonds',
+    'Mutual Funds',
+    'ETFs',
   ]);
 
   // Function to generate 3 random topics

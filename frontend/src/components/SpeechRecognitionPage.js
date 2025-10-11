@@ -34,24 +34,42 @@ export default function SpeechRecognitionPage() {
       setIsListening(true);
     };
 
-    recognition.onresult = (event) => {
+    // ONLY ONE onresult handler - this is the corrected version
+    recognition.onresult = async (event) => {
       console.log("Speech recognition result received");
       const transcript = event.results[0][0].transcript;
       setText(transcript);
       setIsListening(false);
 
-      // Send transcript to backend for keyword extraction
-      fetch("http://localhost:5001/api/extract", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: transcript }),
-      })
-        .then((res) => res.json())
-        .then((data) => setKeywords(data.keywords))
-        .catch((err) => {
-          console.error("Backend fetch error:", err);
-          setError("Failed to extract keywords");
+      try {
+        console.log("Sending to backend:", transcript);
+        
+        const response = await fetch("http://localhost:5001/api/extract", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text: transcript }),
         });
+
+        console.log("Response status:", response.status);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log("Backend response:", data);
+        
+        setKeywords(data.keywords);
+        setError("");
+        setShowPlayButton(true); // Show the play button after keywords are detected
+        
+      } catch (err) {
+        console.error("Backend fetch error:", err);
+        setError(`Failed to extract keywords: ${err.message}`);
+        // Fallback to client-side keyword extraction
+        fallbackKeywordExtraction(transcript);
+        setShowPlayButton(true); // Still show play button even with fallback
+      }
     };
 
     recognition.onerror = (event) => {
@@ -64,43 +82,6 @@ export default function SpeechRecognitionPage() {
       console.log("Speech recognition ended");
       setIsListening(false);
     };
-
-     recognition.onresult = async (event) => {
-    console.log("Speech recognition result received");
-    const transcript = event.results[0][0].transcript;
-    setText(transcript);
-    setIsListening(false);
-
-    try {
-      console.log("Sending to backend:", transcript);
-      
-      const response = await fetch("http://localhost:5001/api/extract", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: transcript }),
-      });
-
-      console.log("Response status:", response.status);
-      
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      console.log("Backend response:", data);
-      
-      setKeywords(data.keywords);
-      setError("");
-      setShowPlayButton(true); // Show the play button after keywords are detected
-      
-    } catch (err) {
-      console.error("Backend fetch error:", err);
-      setError(`Failed to extract keywords: ${err.message}`);
-      // Fallback to client-side keyword extraction
-      fallbackKeywordExtraction(transcript);
-      setShowPlayButton(true); // Still show play button even with fallback
-    }
-  };
 
     // Auto-start listening when component mounts
     startListening();
@@ -117,6 +98,7 @@ export default function SpeechRecognitionPage() {
     setError("");
     setKeywords([]);
     setText("");
+    setShowPlayButton(false); // Reset play button when starting new recording
     
     if (recognitionRef.current) {
       try {
@@ -155,14 +137,11 @@ export default function SpeechRecognitionPage() {
     setError("Using fallback detection (backend unavailable)");
   };
 
-  
   const goBack = () => {
-    navigate(-1); // Go back to previous page
+    navigate(-1);
   };
 
-  
-    const handlePlayClick = () => {
-    // Navigate to a new page with story options based on detected keywords
+  const handlePlayClick = () => {
     navigate('/story-options', { 
       state: { 
         detectedKeywords: keywords,
@@ -199,11 +178,15 @@ export default function SpeechRecognitionPage() {
           {isListening ? (
             <div className="listening-status">
               <span className="pulse-dot"></span>
-              Listening...
+              Listening... Speak now!
+            </div>
+          ) : text ? (
+            <div className="ready-status">
+              ✅ Speech detected!
             </div>
           ) : (
             <div className="ready-status">
-              Ready
+              Ready to listen
             </div>
           )}
         </div>
@@ -249,7 +232,8 @@ export default function SpeechRecognitionPage() {
             </div>
           </div>
         )}
-         {/* Let's Play! Button - Only show after keywords are detected */}
+
+        {/* Let's Play! Button - Only show after keywords are detected */}
         {showPlayButton && (
           <div className="play-section">
             <button onClick={handlePlayClick} className="play-button">
@@ -262,4 +246,3 @@ export default function SpeechRecognitionPage() {
     </div>
   );
 }
-
