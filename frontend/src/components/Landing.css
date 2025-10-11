@@ -4,7 +4,7 @@
   flex-direction: column;        /* Stack items vertically */
   align-items: center;           /* Center horizontally */
   height: 100vh;                 /* Full viewport height */
-  background: linear-gradient(135deg, #55208d, #061c41); /* Gradient background */
+  background: #111D13;
   color: #fff;                   /* White text */
   text-align: center;            /* Center text */
   padding: 0 20px;               /* Responsive padding */
@@ -28,8 +28,8 @@
 
 /* Individual buttons */
 .Buttons button {
-  background-color: #9f45d3;     /* Button color */
-  color: #fff;                   /* Text color */
+  background-color: #D9D9D9;
+  color: black;           /* Text color */
   border: none;                  /* Remove default border */
   padding: 20px 35px;            /* Size of button */
   font-size: 1.5rem;
@@ -41,7 +41,7 @@
 }
 
 .Buttons button:hover {
-  background-color: #440659;     /* Darker on hover */
+  background-color:#D9D9D9;
   transform: scale(1.05);        /* Slight grow effect */
 }
 
