@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import './story4.css';
 import zeeshan from '../assets/zeeshan5.png';
+import { useNavigate } from 'react-router-dom';
 
 function Story4() {
   const [showHint, setShowHint] = useState(false); // track if hint is visible
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    navigate('/story6'); // Replace '/nextpage' with the actual path you want to navigate to
+  }
 
   const buttons = [
     "Let it ride — hope it keeps winning",
@@ -23,7 +29,7 @@ function Story4() {
             Months pass. One pick is now way bigger than the rest.
           </p>
           {buttons.map((btnText, i) => (
-            <button key={i}>
+            <button key={i} onClick={() => handleSubmit()}>
               {btnText}
             </button>
           ))}

@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import './story2.css';
 import zeeshan from '../assets/zeeshan3.png';
+import { useNavigate } from 'react-router-dom';
 
 function Story2() {
   const [showHint, setShowHint] = useState(false); // track if hint is visible
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    navigate('/story3'); // Replace '/nextpage' with the actual path you want to navigate to
+  }
 
   const buttons = [
     "All the money today — feels bold, can sting",
@@ -24,7 +30,7 @@ function Story2() {
 
           </p>
           {buttons.map((btnText, i) => (
-            <button key={i}>
+            <button key={i} onClick={() => handleSubmit()}>
               {btnText}
             </button>
           ))}

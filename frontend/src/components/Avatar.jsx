@@ -7,9 +7,11 @@ import kanch from '../assets/kanch.png';
 import tams from '../assets/tams.png'
 import lak from '../assets/lak.png'
 import vansh from '../assets/vansh.png'
+import { useNavigate } from 'react-router-dom';
 
 function Avatar() {
   const [selectedAvatar, setSelectedAvatar] = useState(null);
+  const navigate = useNavigate();
 
   const avatars = [
     { src: zeeshan, className: 'z' },
@@ -19,6 +21,10 @@ function Avatar() {
     { src: lak, className: 'l' },
     { src: vansh, className: 'v' }
   ];
+
+  const handleSubmit = () => {
+    navigate('/story1');
+  }
 
   return (
     <div className="avatar-container">
@@ -33,7 +39,8 @@ function Avatar() {
           ></img>
         ))}
        </div>
-     <button>Confirm</button>
+     <button 
+     onClick={() => handleSubmit()}>Confirm</button>
      </div>
    );
 }
