@@ -1,5 +1,7 @@
 import React from "react";
 import "./summary.css";
+import { useNavigate } from 'react-router-dom';
+
 
 //Sample data - Can later be replaced with StockGro Data
 const summaryData = {
@@ -23,6 +25,12 @@ const summaryData = {
 
 
 const Summary = () => {
+  const navigate = useNavigate();
+
+  const handleNextEpisode = () => {
+    // Navigate to the next episode or main menu
+    navigate('/'); // Replace '/mainmenu' with the actual path you want to navigate to
+  };
   return (
     <div className="summary-container">
       <h1 className="summary-title">{summaryData.episodeTitle}</h1>
@@ -54,7 +62,9 @@ const Summary = () => {
         </ul>
       </section>
 
-      <button className="next-episode-btn">Go to Next Episode</button>
+      <button className="next-episode-btn"
+        onClick={handleNextEpisode}
+      >Go to Next Episode</button>
     </div>
   );
 };
