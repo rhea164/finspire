@@ -1,0 +1,61 @@
+/* components/Avatar.css */
+
+.avatar-container {
+  background-color: #111D13; /* your specified color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* horizontal center */
+  height: 100vh;             /* full viewport height */
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;          /* prevents scrolling */
+}
+
+.avatar {
+  font-family: 'Arial', sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 30px;      /* less space to move button up */
+  text-align: center;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.avatars {
+  display: flex;
+  gap: 25px;                 /* space between avatars */
+  justify-content: center;
+  flex-wrap: wrap;           /* wrap avatars on small screens */
+  margin-bottom: 20px;       /* smaller margin so button is closer */
+}
+
+.avatars img {
+  width: 120px;             /* fixed width for consistent layout */
+  height: 210px;           /* fixed height */
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+}
+
+.avatars img:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+  border: 3px solid #ffffff;
+}
+
+button {
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #111D13;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #dddddd;
+  transform: scale(1.05);
+}
