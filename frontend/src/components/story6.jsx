@@ -2,6 +2,7 @@ import React from 'react';
 import './story6.css';
 import zeeshan from '../assets/zeeshan6.png';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 function Story6() {
   const navigate = useNavigate();
