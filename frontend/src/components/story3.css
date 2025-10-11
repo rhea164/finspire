@@ -10,7 +10,7 @@
   min-height: 100vh;         /* full viewport height */
 }
 
-.hint-button {
+hint-button {
   background-color: #8b735f;
   color: white;
   border: none;
@@ -22,7 +22,6 @@
   display: block;
   margin: 20px auto; /* center the button */
   transition: all 0.3s ease;
-  position:absolute;
 }
 
 .hint-container {
@@ -41,7 +40,6 @@
   font-size: 16px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.2);
 }
-
 
 .title {
   font-family: 'Arial', sans-serif;
