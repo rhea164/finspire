@@ -1,6 +1,6 @@
 import React from 'react';
 import './journey.css';
-import avatarStanding from '../assets/avatar_standing.png'; 
+import avatarStanding from '../assets/zeeshan1.png'; 
 
 const Journey = () => {
   return (
