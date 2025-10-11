@@ -1,11 +1,17 @@
-import './App.css';
-import Landing from './components/landing'
+// src/App.js
+import React from "react";
+import "./App.css";
 
+// Import your components correctly
+import Home from "./components/Home";
+import Summary from "./components/summary";
 
 function App() {
+  // For now, just render one page at a time
   return (
-    <div>
-      <Landing></Landing>
+    <div className="App">
+      {/* Render Home or Summary */}
+      <Summary />
     </div>
   );
 }
