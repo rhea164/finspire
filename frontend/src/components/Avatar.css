@@ -30,17 +30,39 @@
 }
 
 .avatars img {
-  width: 120px;             /* fixed width for consistent layout */
-  height: 210px;           /* fixed height */
+  width: 150px;             /* fixed width for consistent layout */
+  height: 300px;           /* fixed height */
   cursor: pointer;
   border: 3px solid transparent;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+}
+
+.avatars img.r {
+  margin-top:10px;
+  height: 280px;            /* smaller height for Rhea */
+  width:180px;
+}
+
+.avatars img.v{
+  margin-top:-30px;
+  height:350px;
+}
+
+.avatars img.l{
+  width:130px;
 }
 
 .avatars img:hover {
   transform: scale(1.15);
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
   border: 3px solid #ffffff;
+  background-color: pink;
+}
+
+.avatars img.selected {
+  border: 3px solid #ffffff;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+  background-color: pink;
 }
 
 button {
