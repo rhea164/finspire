@@ -10,6 +10,37 @@
   min-height: 100vh;         /* full viewport height */
 }
 
+hint-button {
+  background-color: #8b735f;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  width: 150px;
+  display: block;
+  margin: 20px auto; /* center the button */
+  transition: all 0.3s ease;
+}
+
+.hint-container {
+  position: relative;
+  text-align: center; /* center the button and hint box */
+}
+
+.hint-box {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+  display: inline-block;
+  max-width: 300px;
+  font-size: 16px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
 .title {
   font-family: 'Arial', sans-serif;
   font-size: 3rem;
