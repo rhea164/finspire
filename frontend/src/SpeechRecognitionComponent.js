@@ -37,7 +37,7 @@ export default function SpeechRecognitionComponent() {
       setIsListening(false);
 
       // Send transcript to backend for keyword extraction
-      fetch("http://localhost:5000/api/extract", {
+      fetch("http://localhost:5001/api/extract", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: transcript }),
