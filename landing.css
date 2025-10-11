@@ -1,9 +1,0 @@
-.Topic {
-  font-size: 2.5rem;        /* big heading */
-  color: #2c3e50;           /* dark blue/gray color */
-  text-align: center;       /* center the text */
-  margin: 40px 0;           /* spacing from top and bottom */
-  font-family: 'Arial', sans-serif; /* font style */
-  letter-spacing: 2px;      /* spacing between letters */
-  text-transform: uppercase; /* optional: uppercase letters */
-}
