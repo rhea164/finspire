@@ -39,9 +39,9 @@ function Landing() {
     navigate('/avatar', { state: { selectedTopic: topic } });
   };
 
-  // Function to handle microphone button click
+   // Function to handle microphone button click - navigate to speech page
   const handleMicrophoneClick = () => {
-    navigate('/avatar', { state: { selectedTopic: 'Voice Selection' } });
+    navigate('/speech');
   };
 
   return (
