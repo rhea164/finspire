@@ -23,7 +23,7 @@ function Avatar() {
   ];
 
   const handleSubmit = () => {
-    navigate('/story1');
+    navigate('/journey');
   }
 
   return (

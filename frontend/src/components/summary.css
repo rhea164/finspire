@@ -1,68 +1,223 @@
-
-body {
-  background-color: #111D13;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-
 .summary-container {
-  max-width: 800px;
-  margin: 50px auto;
-  padding: 30px;
-  background-color: #f5f5f5;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40px 20px;
+  color: white;
+  font-family: 'Arial', sans-serif;
 }
 
-/* Main title */
 .summary-title {
   text-align: center;
+  font-size: 2.5rem;
   margin-bottom: 40px;
-  color: #333;
-  font-size: 2rem;
+  font-weight: 300;
 }
 
-/* Section styling */
+/* Score Section */
+.score-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.score-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.score-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 4px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.score-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.score-label {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.level-badge {
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.feedback-text {
+  font-size: 1.3rem;
+  font-weight: 600;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Choices Section */
+.choices-section {
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.choices-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.choices-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.choice-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.choice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.choice-story {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.choice-points {
+  background: rgba(76, 175, 80, 0.3);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.choice-points.positive {
+  background: rgba(76, 175, 80, 0.3);
+}
+
+.choice-points.neutral {
+  background: rgba(255, 193, 7, 0.3);
+}
+
+.choice-text {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Summary Sections */
 .summary-section {
-  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 25px;
+  margin: 25px auto;
+  max-width: 800px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .summary-section h2 {
-  color: #415d13;
   margin-bottom: 15px;
-  font-size: 1.5rem;
+  font-weight: 400;
 }
 
 .summary-section ul {
-  list-style: disc inside;
-  padding-left: 10px;
+  list-style: none;
+  padding: 0;
 }
 
 .summary-section li {
-  background: #ffffff;
-  margin-bottom: 8px;
-  padding: 10px 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  padding: 8px 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
 }
 
-/* Button styling */
-.next-episode-btn {
-  display: block;
-  margin: 20px auto 0;
-  padding: 12px 25px;
-  background-color:#709775;
-  color: white;
-  font-size: 1rem;
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.play-again-btn, .next-episode-btn {
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
   border: none;
-  border-radius: 8px;
+  border-radius: 25px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  min-width: 150px;
+}
+
+.play-again-btn {
+  background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+  color: white;
+}
+
+.play-again-btn:hover {
+  background: linear-gradient(135deg, #FF8E53, #FF6B6B);
+  transform: translateY(-3px);
+}
+
+.next-episode-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .next-episode-btn:hover {
-  background-color: #8FB996;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .summary-title {
+    font-size: 2rem;
+  }
+  
+  .score-circle {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .score-number {
+    font-size: 2rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .play-again-btn, .next-episode-btn {
+    width: 100%;
+    max-width: 300px;
+  }
 }

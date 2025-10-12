@@ -1,23 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './story6.css';
 import zeeshan from '../assets/zeeshan6.png';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useScore } from '../context/StoreContext';
 
 function Story6() {
+  const [showHint, setShowHint] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
   const navigate = useNavigate();
-  const handleSubmit = () => {
-    navigate('/summary'); // Replace '/nextpage' with the actual path you want to navigate to
-  }
-  const buttons = [
-    "Move money into a cheaper fund — keep more of the gains",
-    "Turn on automatic monthly buys — good habits on auto-pilot",
-    "Take out half for a big purchase — fun now, slower growth later"
-  ];
-  const [showHint, setShowHint] = useState(false); // track if hint is visible
-  const hintText = "Letting it run can feel lucky, but keeping your balance is how you stay in the game long-term.";
-  return (
+  const { addPoints } = useScore();
+
+  const handleChoice = (choiceText, points) => {
+    // Add points based on the choice
+    addPoints(points, choiceText, "Locking Good Habits - Automation");
     
+    // Navigate to the summary page
+    navigate('/summary');
+  };
+
+  const choices = [
+    { 
+      text: "Move money into a cheaper fund — keep more of the gains", 
+      points: 5  // Partially correct - cost efficiency but not habit building
+    },
+    { 
+      text: "Turn on automatic monthly buys — good habits on auto-pilot", 
+      points: 10  // Correct choice - automation builds discipline
+    },
+    { 
+      text: "Take out half for a big purchase — fun now, slower growth later", 
+      points: 0  // Wrong choice - undermines long-term goals
+    }
+  ];
+
+  const hintText = "Letting it run can feel lucky, but keeping your balance is how you stay in the game long-term.";
+
+  return (
     <div className="story-container">
       <h1 className="title">LOCKING GOOD HABITS</h1>
       <div className="avatar">
@@ -26,9 +44,15 @@ function Story6() {
           <p className="text">
             Year-end. Time to set future Zeeshan up for wins.
           </p>
-          {buttons.map((btnText, i) => (
-            <button key={i} onClick={() => handleSubmit()}>
-              {btnText}
+          {choices.map((choice, index) => (
+            <button 
+              key={index}
+              onClick={() => handleChoice(choice.text, choice.points)}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              className={hoveredIndex === index ? 'hovered' : ''}
+            >
+              {choice.text}
             </button>
           ))}
         </div>

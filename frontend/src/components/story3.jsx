@@ -2,21 +2,39 @@ import React, { useState } from 'react';
 import './story3.css';
 import zeeshan from '../assets/zeeshan4.png';
 import { useNavigate } from 'react-router-dom';
+import { useScore } from '../context/StoreContext';
 
 function Story3() {
-  const [showHint, setShowHint] = useState(false); // track if hint is visible
-  const hintText = "Letting it run can feel lucky, but keeping your balance is how you stay in the game long-term.";
+  const [showHint, setShowHint] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
   const navigate = useNavigate();
+  const { addPoints } = useScore();
 
-  const handleSubmit = () => {
-    navigate('/story4'); // Replace '/nextpage' with the actual path you want to navigate to
-  }
+  const handleChoice = (choiceText, points) => {
+    // Add points based on the choice
+    addPoints(points, choiceText, "The First Drop - Risk Management");
+    
+    // Navigate to the next story
+    navigate('/story4');
+  };
 
-  const buttons = [
-    "Move money into a cheaper fund — keep more of the gains",
-    "Turn on automatic monthly buys — good habits on auto-pilot",
-    "Take out half for a big purchase — fun now, slower growth later"
+  const choices = [
+    { 
+      text: "Buy more without thinking — just vibes", 
+      points: 0  // Wrong choice - emotional investing
+    },
+    { 
+      text: "Recheck the reason, then add a small amount — brain on, not off", 
+      points: 5  // Partially correct - some analysis but still buying
+    },
+    { 
+      text: "Pause and watch for a few weeks — patience, but don't forget it", 
+      points: 10  // Correct choice - disciplined approach
+    }
   ];
+
+  const hintText = "Letting it run can feel lucky, but keeping your balance is how you stay in the game long-term.";
+
   return (
     <div className="story-container">
       <h1 className="title">THE FIRST DROP</h1>
@@ -26,12 +44,17 @@ function Story3() {
           <p className="text">
             Price falls 8% in a week. Heart drops with it. What now?
           </p>
-          {buttons.map((btnText, i) => (
-            <button key={i} onClick={() => handleSubmit()}>
-              {btnText}
+          {choices.map((choice, index) => (
+            <button 
+              key={index}
+              onClick={() => handleChoice(choice.text, choice.points)}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              className={hoveredIndex === index ? 'hovered' : ''}
+            >
+              {choice.text}
             </button>
-          ))
-        }
+          ))}
         </div>
       </div>
       <div className="hint-container">

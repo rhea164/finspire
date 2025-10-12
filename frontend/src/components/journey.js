@@ -1,8 +1,13 @@
 import React from 'react';
 import './journey.css';
 import avatarStanding from '../assets/zeeshan1.png'; 
+import { useNavigate } from 'react-router-dom';
 
 const Journey = () => {
+  const navigate = useNavigate();
+  const handleContinue = () => {
+    navigate('/story1');
+  };
   return (
     <div className="journey-container">
       <h2 className="journey-title">START YOUR JOURNEY!</h2>
@@ -14,7 +19,8 @@ const Journey = () => {
           This year, he will find out if a plan can beat the noise!
         </p>
       </div>
-      <button className="continue-button">Continue</button>
+      <button onClick={handleContinue}
+      className="continue-button">Continue</button>
     </div>
   );
 };

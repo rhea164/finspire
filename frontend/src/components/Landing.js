@@ -44,6 +44,7 @@ function Landing() {
     navigate('/speech');
   };
 
+
   return (
     <div className="landing-container">
       <h1 className="Topic">CHOOSE YOUR TOPIC</h1>
