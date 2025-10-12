@@ -1,69 +1,98 @@
-
 body {
   background-color: #111D13;
+  background-image: url("../assets/bg2.png");
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* .journey-container {
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+} */
+
 .journey-container {
-    
-    /* max-width: 600px; */
-    padding: 30px;
-    border-radius: 12px;
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  display: flex;             /* make container a flexbox */
+  flex-direction: column;    /* stack content vertically */
+  align-items: center;       /* center horizontally */
 }
 
+
 .journey-title {
-    color: #d1e7c2; /* light green text */
-    font-size: 50px;
-    margin-bottom: 6px;
-    font-family: "Poppins";
+  color: #d1e7c2;
+  font-size: 50px;
+  margin-bottom: 20px;
+  font-family: "Poppins", sans-serif;
 }
 
 .journey-content {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  text-align: left;
-  margin-bottom: 25px;
+  align-items: center;        /* vertically center avatar + text */
+  justify-content: center;    /* horizontally center the section */
+  gap: 25px;                  /* space between avatar and text */
+  margin: 0 auto 10px auto;  /* center the content block */
+  max-width: 900px;           /* limit width for cleaner layout */
+  padding: 10px 20px;
 }
 
-/* .journey-content {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  text-align: left;
-  margin-bottom: 25px;
-} */
+.avatar {
+  width: 250px !important;
+  height: auto !important;
+  display: block;
+  flex-shrink: 0;
+  object-fit: contain;
+}
 
 .journey-text {
-  font-size: 28px;
+  font-size: 22px;
   line-height: 1.5;
-  flex: 1;
+  color: #ffffff;
   text-align: left;
-  color: #FFFFFF;
-  margin-top: -40px;
+  flex: 1;
+  margin: 0;
+  margin-top: -125px;
 }
 
 .continue-button {
-  background-color: #8b735f; /* similar brown */
+  background-color: #8b735f;
   color: white;
   border: none;
-  padding: 10px 25px;
+  padding: 12px 35px;
   border-radius: 25px;
   font-size: 24px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  margin-top: -100px; /* add small positive spacing from text */
 }
+
+
 
 .continue-button:hover {
   background-color: #a5846e;
 }
 
-.avatar {
-  width: 200px;
-  height: auto;
+
+@media (max-width: 768px) {
+  .journey-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .avatar {
+    width: 80px;
+    margin-bottom: 15px;
+  }
+
+  .journey-text {
+    text-align: center;
+    font-size: 20px;
+  }
 }
-
-
