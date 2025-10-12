@@ -1,6 +1,6 @@
 .summary-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: url('../assets/bg.png');
   padding: 40px 20px;
   color: white;
   font-family: 'Arial', sans-serif;
@@ -176,12 +176,12 @@
 }
 
 .play-again-btn {
-  background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+  background: #111D13;
   color: white;
 }
 
 .play-again-btn:hover {
-  background: linear-gradient(135deg, #FF8E53, #FF6B6B);
+  background: #111D13;
   transform: translateY(-3px);
 }
 
