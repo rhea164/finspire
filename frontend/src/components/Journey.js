@@ -12,7 +12,9 @@ const Journey = () => {
     <div className="journey-container">
       <h2 className="journey-title">START YOUR JOURNEY!</h2>
       <div className="journey-content">
-        <img src={avatarStanding} alt="Avatar" className="avatar" />
+        <div className="avatar">
+          <img src={avatarStanding} alt="Avatar"/>
+        </div>
         <p className="journey-text">
           Zeeshan just got a bonus and a timeline full of “AI to the moon” posts. 
           He has got AED 10,000, a mix of FOMO and ambition, and friends split between hype and caution. 

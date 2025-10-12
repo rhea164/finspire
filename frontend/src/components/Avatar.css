@@ -55,22 +55,23 @@
 .avatars img:hover {
   transform: scale(1.15);
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
-  border: 3px solid #ffffff;
-  background-color: pink;
+  border: 3px solid rgb(13, 115, 68);
+  border-radius:20px;
+  background: url('../assets/bg.png');
 }
 
 .avatars img.selected {
-  border: 3px solid #ffffff;
+  border: 3px solid rgb(13, 115, 68);
+  border-radius:20px;
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
-  background-color: pink;
+  background: url('../assets/bg.png');
 }
 
 button {
   padding: 12px 30px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #111D13;
-  background-color: #ffffff;
+  font-size: 1.2rem;;
+  color: #011403;
+  background-color: rgb(125, 169, 100);
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -78,6 +79,6 @@ button {
 }
 
 button:hover {
-  background-color: #dddddd;
+  background-color:rgb(140, 186, 113);
   transform: scale(1.05);
 }
