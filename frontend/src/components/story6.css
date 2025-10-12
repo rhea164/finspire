@@ -2,6 +2,7 @@
 
 .story-container {
   background-color: #111D13; /* dark background */
+  background-image: url('../assets/bg2.png');
   display: flex;
   flex-direction: column;
   align-items: center;       /* center horizontally */
@@ -40,8 +41,6 @@ hint-button {
   font-size: 16px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.2);
 }
-
-
 
 .title {
   font-family: 'Arial', sans-serif;
@@ -95,17 +94,16 @@ hint-button {
   margin: 5px 0;                   /* vertical spacing between buttons */
   padding: 12px 20px;              /* inner spacing */
   font-size: 1.2rem;
-  font-weight: bold;
-  color: #111D13;                  /* button text color */
-  background-color: #ffffff;       /* button background */
+  color: white;                  /* button text color */
+  background-color:#5D866C;      /* button background */
   border: none;
-  border-radius: 8px;              /* rounded corners */
+  border-radius: 20px;              /* rounded corners */
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .story-container button:hover {
-  background-color: #dddddd;       /* hover effect */
+  background-color:#4e725b;        /* hover effect */
   transform: scale(1.03);
 }
 
