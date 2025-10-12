@@ -4,13 +4,13 @@ import zeeshan from '../assets/zeeshan2.png';
 import { useNavigate } from 'react-router-dom';
 
 function Story1() {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [showHint, setShowHint] = useState(false); // track if hint is visible
+  const hintText = "Letting it run can feel lucky, but keeping your balance is how you stay in the game long-term.";
   const navigate = useNavigate();
 
   const handleSubmit = () => {
     navigate('/story2'); // Replace '/nextpage' with the actual path you want to navigate to
   }
-
   return (
     <div className="story-container">
       <h1 className="title">THE BUZZ...</h1>
@@ -24,6 +24,19 @@ function Story1() {
           <button onClick={() => handleSubmit()}>A basket of many stocks — spreads risk.</button>
           <button onClick={() => handleSubmit()}>Half hot stock, half basket — a bit wild, a bit safe.</button>
         </div>
+      </div>
+      <div className="hint-container">
+        <button
+          className="hint-button"
+          onClick={() => setShowHint(prev => !prev)}
+        >
+          Hint!
+        </button>
+        {showHint && (
+          <div className="hint-box">
+            {hintText}
+          </div>
+        )}
       </div>
     </div>
   );
